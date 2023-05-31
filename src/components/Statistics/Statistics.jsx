@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 export default function Statistics({ data, title }) {
   return (
     <Section>
-      <Title>{title && title}</Title>
+      {title && <Title>{title}</Title>}
 
       <List>
         {data.map(({ id, label, percentage }) => (
