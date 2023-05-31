@@ -9,10 +9,10 @@ import {
 } from './Statistics.styled';
 import PropTypes from 'prop-types';
 
-export default function Statistics({ data }) {
+export default function Statistics({ data, title }) {
   return (
     <Section>
-      <Title>Upload stats</Title>
+      <Title>{title && title}</Title>
 
       <List>
         {data.map(({ id, label, percentage }) => (

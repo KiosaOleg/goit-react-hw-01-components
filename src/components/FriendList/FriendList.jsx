@@ -1,26 +1,13 @@
 import React from 'react';
-import { Status, Item, List } from './FriendList.styled';
-import PropTypes from 'prop-types';
+import friends from 'data/friends.json';
+import FriendItem from './FriendItem';
 
-export default function FriendList({ friends }) {
+export default function FriendList() {
   return (
-    <List>
+    <div>
       {friends.map(({ avatar, name, isOnline, id }) => (
-        <Item key={id}>
-          <Status stat={isOnline}></Status>
-          <img src={avatar} alt="User avatar" width="48" />
-          <p>{name} </p>
-        </Item>
+        <FriendItem key={id} avatar={avatar} name={name} isOnline={isOnline} />
       ))}
-    </List>
+    </div>
   );
 }
-
-FriendList.propTypes = {
-  friends: PropTypes.shape({
-    avatar: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    isOnline: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-  }),
-};
